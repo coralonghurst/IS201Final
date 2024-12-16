@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="Matching dancers to great song options for ballroom dance" content="" />
+        <meta name="Cora Longhurst" content="" />
+        <title>Dance Music Matchmaker</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html">AI Collaboration</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Ballroom Dance</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="resume.html">Resume</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="matchmaker.html">Dance Music Matchmaker</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-color: #cc8024">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>Music for Dancers</h1>
+                            <h2 class="subheading">Ballroom dance music for beginners</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content: Music Generator -->
+        <article>
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <h1>Dance Music Matchmaker</h1>
+                        <div class="container" style="background-color:white; padding: 20px; border-radius: 10px;">
+                            <label for="dance-style">Choose your favorite dance style:</label>
+                            <select id="dance-style">
+                                <option value="Waltz">Waltz</option>
+                                <option value="ChaCha">ChaCha</option>
+                                <option value="Samba">Samba</option>
+                                <option value="Foxtrot">Foxtrot</option>
+                                <option value="Quickstep">Quickstep</option>
+                            </select>
+                            <button onclick="findSong()">Find Music</button>
+                            <div class="song-info" id="song-info"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Footer-->
+        <footer class="border-top">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <ul class="list-inline text-center">
+                        </ul>
+                        <!-- Remove the social media icons-->
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; Cora Longhurst 2024</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+
+        <script>
+            const danceSongs = {
+                Waltz: {
+                    song: "I See the Light (from Tangled)",
+                    artist: "DJ Ice",
+                    link: "https://www.youtube.com/watch?v=y67_Zek4Gyw&list=PLoMTMPMXFsMBdqUxDgb5enoa9B5_q0n7D&index=18"
+                },
+                ChaCha: {
+                    song: "Can't Stop The Feeling (Justin Timberlake Cover)",
+                    artist: "DJ Ice",
+                    link: "https://www.youtube.com/watch?v=L2W9GU8AkMU"
+                },
+                Samba: {
+                    song: "Shape Of You (Dj Mitya remix)",
+                    artist: "Ed Sheeran",
+                    link: "https://www.youtube.com/watch?v=VEYOLn87Dcc&list=PLN5Gk7-wcrunJPqqNwhXyGOeV8TO97sqU"
+                },
+                Foxtrot: {
+                    song: "Fly Me to the Moon",
+                    artist: "Frank Sinatra",
+                    link: "https://www.youtube.com/watch?v=ZEcqHA7dbwM"
+                },
+                Quickstep: {
+                    song: "Sing, Sing, Sing",
+                    artist: "Benny Goodman",
+                    link: "https://www.youtube.com/watch?v=r2S1I_ien6A"
+                }
+            };
+
+            function findSong() {
+                const selectedDance = document.getElementById("dance-style").value;
+                const songInfo = danceSongs[selectedDance];
+                
+                if (songInfo) {
+                    document.getElementById("song-info").innerHTML = `
+                        <p><strong>Song:</strong> ${songInfo.song}</p>
+                        <p><strong>Artist:</strong> ${songInfo.artist}</p>
+                        <a href="${songInfo.link}" target="_blank" class="song-link">Listen on YouTube</a>
+                    `;
+                }
+            }
+        </script>
+    </body>
+</html>

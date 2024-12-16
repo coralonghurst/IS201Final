@@ -1,0 +1,35 @@
+/* Custom Stylesheet for Cora's Ballroom Dance Page */
+
+/* 1. Font Color for Body */
+body {
+    color: #333;
+}
+
+/* 2. Font Family for the Main Content */
+body, h1, h2, h3 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+/* 5. Style for individual dance lists */
+ul {
+    color: #2e4c76;
+}
+
+/* 6. Custom button style */
+a {
+    text-align: center;
+}
+
+/* Optional: Center content globally with Flexbox */
+body {
+    font-family: 'Arial', sans-serif; /* Default font for body */
+}
+
+
+
+/* 8. Style for the footer */
+footer {
+    padding: 10px;
+    text-align: center;
+}
